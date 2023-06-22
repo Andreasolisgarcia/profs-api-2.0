@@ -38,6 +38,7 @@ class DeviseCreateUsers < ActiveRecord::Migration[7.0]
       t.belongs_to :adresse
       t.date :birthdate
       t.string :pronouns
+      t.string :type
 
       t.timestamps null: false
     end

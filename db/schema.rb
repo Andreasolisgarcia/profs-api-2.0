@@ -93,6 +93,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_06_21_185011) do
     t.bigint "adresse_id"
     t.date "birthdate"
     t.string "pronouns"
+    t.string "type"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["adresse_id"], name: "index_users_on_adresse_id"
