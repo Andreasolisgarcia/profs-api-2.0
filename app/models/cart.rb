@@ -1,5 +1,5 @@
 class Cart < ApplicationRecord
-  belongs_to :student
+  belongs_to :student, class_name: 'User'
   has_one :order
 
   has_many :cart_courses

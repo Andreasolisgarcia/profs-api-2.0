@@ -4,11 +4,10 @@ class Student < User
   has_many :orders
   has_many :carts
   has_many :cart_courses, through: :carts
-  has_many :courses, through: :cart_courses
+  has_many :enrolled_courses, through: :cart_courses, source: :course
 
 
   def assign_student_role
-    role = Role.find_by(role: 'student')
-    UserRole.create!(user: self ,role: role)
- end
+    add_role('Student')
+  end
 end

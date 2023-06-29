@@ -1,10 +1,9 @@
 class Teacher < User
   after_create :assign_teacher_role
 
-  has_many :courses
+  has_many :created_courses, source: :course
 
   def assign_teacher_role
-     role = Role.find_by(role: 'teacher')
-     UserRole.create!(user: self ,role: role)
+    add_role('Teacher')
   end
 end

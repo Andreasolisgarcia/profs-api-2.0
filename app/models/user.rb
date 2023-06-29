@@ -6,4 +6,20 @@ class User < ApplicationRecord
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
+
+
+  
+
+  def add_role(role_to_assign)
+    role = Role.find_by(role: role_to_assign)
+    UserRole.create!(user: self ,role: role)
+  end
+        
+  def role_array
+    self.roles.pluck(:role)
+  end
+        
+  def has_role?(role)
+    role_array.include?(role)
+  end
 end
