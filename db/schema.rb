@@ -34,16 +34,16 @@ ActiveRecord::Schema[7.0].define(version: 2023_06_21_185011) do
   end
 
   create_table "carts", force: :cascade do |t|
-    t.bigint "student_id"
+    t.bigint "user_id"
     t.bigint "order_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["order_id"], name: "index_carts_on_order_id"
-    t.index ["student_id"], name: "index_carts_on_student_id"
+    t.index ["user_id"], name: "index_carts_on_user_id"
   end
 
   create_table "courses", force: :cascade do |t|
-    t.bigint "teacher_id"
+    t.bigint "user_id"
     t.string "title"
     t.text "description"
     t.float "price"
@@ -53,17 +53,17 @@ ActiveRecord::Schema[7.0].define(version: 2023_06_21_185011) do
     t.float "additional_cost"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["teacher_id"], name: "index_courses_on_teacher_id"
+    t.index ["user_id"], name: "index_courses_on_user_id"
   end
 
   create_table "orders", force: :cascade do |t|
-    t.bigint "student_id"
+    t.bigint "user_id"
     t.string "stripe_id"
     t.bigint "cart_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["cart_id"], name: "index_orders_on_cart_id"
-    t.index ["student_id"], name: "index_orders_on_student_id"
+    t.index ["user_id"], name: "index_orders_on_user_id"
   end
 
   create_table "roles", force: :cascade do |t|

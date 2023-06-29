@@ -1,7 +1,7 @@
 class CreateCourses < ActiveRecord::Migration[7.0]
   def change
     create_table :courses do |t|
-      t.belongs_to :teacher, index: true
+      t.belongs_to :user, index: true
       t.string :title
       t.text :description
       t.float :price
