@@ -102,6 +102,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_06_21_185011) do
   end
 
   add_foreign_key "adresses", "users"
+  add_foreign_key "carts", "users"
   add_foreign_key "user_roles", "roles"
   add_foreign_key "user_roles", "users"
 end
